@@ -14,6 +14,8 @@ services:
           memory: "256M"
     networks:
       - application_network
+    depends_on:
+      - devopsdb
       
   devopsdb:
     image: venkatasaivinay/db:v1
