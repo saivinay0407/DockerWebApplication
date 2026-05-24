@@ -9,16 +9,24 @@ services:
       replicas: 1
       restart_policy:
         condition: on-failure
+      resources:
+        limits:
+          cpus: "0.4"
+          memory: "256M"
     networks:
       - application_network
   application:
     image: venkatasaivinay/application:v1
     ports:
-      - "1111:80"
+      - "1111:8080"
     deploy:
       replicas: 2
       restart_policy:
         condition: on-failure
+      resources:
+        limits:
+          cpus: "0.4"
+          memory: "256M"
     networks:
       - application_network
     depends_on:
